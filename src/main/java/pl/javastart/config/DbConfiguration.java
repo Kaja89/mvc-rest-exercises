@@ -43,7 +43,7 @@ public class DbConfiguration {
     @Bean
     public JpaVendorAdapter createVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setDatabase(Database.MYSQL);
+        adapter.setDatabase(Database.POSTGRESQL);
         adapter.setGenerateDdl(true);
         adapter.setShowSql(true);
         return adapter;
@@ -52,10 +52,10 @@ public class DbConfiguration {
     @Bean
     public DataSource createDS() {
         BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false");
-        ds.setUsername("root");
-        ds.setPassword("MalmsteenMalmsteen89");
-        ds.setDriverClassName("com.mysql.jdbc.Driver");
+        ds.setUrl("jdbc:postgresql://localhost:5432/test?useSSL=false");
+        ds.setUsername("test_admin");
+        ds.setPassword("password");
+        ds.setDriverClassName("org.postgresql.Driver");
         ds.setInitialSize(5);
         return ds;
     }
